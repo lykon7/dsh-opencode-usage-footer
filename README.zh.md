@@ -10,6 +10,12 @@
 计量并排。鼠标悬停某个窗口可看到它的名称、占额度比例和重置倒计时；悬停整行可看到
 最近一次刷新时间。它不可点击，只是一块读数。
 
+![输入框底部的 OpenCode Go 药丸——5h 17%、7d 10%、30d 84%——与 Harness 统计药丸并排](assets/composer-footer.png)
+
+悬停某个窗口，可以看它的名称、占额度比例和重置倒计时：
+
+![悬停提示：“Weekly (7d) · 10% of the limit · resets in 3d 14h”](assets/pill-tooltip.png)
+
 ## 为什么还要有这一个
 
 已经有三个插件能在这个界面显示 OpenCode Go 用量

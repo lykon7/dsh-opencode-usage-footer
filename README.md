@@ -14,6 +14,12 @@ pills and the context meter. Hover a chip for the window it names, its share of
 the limit, and the reset countdown; hover the row for when it last refreshed.
 Nothing is clickable — it is a readout, not a control.
 
+![The OpenCode Go pill in the composer footer — 5h 17%, 7d 10%, 30d 84% — beside the harness stats pills](assets/composer-footer.png)
+
+Hovering a chip names the window, its share of the limit, and the reset countdown:
+
+![Tooltip reading "Weekly (7d) · 10% of the limit · resets in 3d 14h"](assets/pill-tooltip.png)
+
 ## Why this one
 
 Three plugins already show OpenCode Go usage in this GUI
