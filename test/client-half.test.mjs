@@ -75,7 +75,7 @@ const ERROR_SNAPSHOT = {
   source: "opencode-go",
   route: "/opencode-usage",
   stale: false,
-  error: { code: "no-key", message: "No OpenCode Go API key. Save one as OPENCODE_GO_API_KEY in Settings, Credentials." },
+  error: { code: "no-key", message: "No OpenCode Go API key. Add the opencode-go provider in Settings → Models → Add model provider, or export OPENCODE_GO_API_KEY." },
   fetchedAt: null,
   ageMs: null,
   meters: []

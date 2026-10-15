@@ -46,10 +46,12 @@ the pill appears under the message box. From a checkout instead of the registry:
 dsh plugin --profile web add /path/to/dsh-opencode-usage-footer
 ```
 
-**Requirement:** an OpenCode Go subscription with a Console API key stored as the
-harness credential `OPENCODE_GO_API_KEY` (Settings → Credentials), or the same
-name in the environment. It is the key the `opencode-go` provider already uses
-for inference — no browser cookie, no second key to manage.
+**Requirement:** an OpenCode Go subscription, added the normal way in
+**Settings → Models → Add model provider → opencode-go**. The harness stores that
+provider's Console API key as the credential `OPENCODE_GO_API_KEY`, which is what
+this plugin reads (and the same key the provider uses for inference) — no browser
+cookie, no second key to manage. Exporting `OPENCODE_GO_API_KEY` in the
+environment works too and takes precedence.
 
 ## How it works
 
@@ -93,7 +95,7 @@ honest when it has nothing:
 | Pill | Meaning | Fix |
 | --- | --- | --- |
 | `Go …` | First read in flight | — |
-| `Go no key` | `OPENCODE_GO_API_KEY` is not set anywhere | Settings → Credentials, or export it |
+| `Go no key` | `OPENCODE_GO_API_KEY` is not set anywhere | Add the provider in **Settings → Models → Add model provider**, or export the variable |
 | `Go key rejected` | opencode.ai answered 401/403 | Reissue the key in the OpenCode console |
 | `Go offline` / `Go timeout` | The host could not reach opencode.ai | Check connectivity |
 | `Go api changed` | The response carried no meter windows | Update `parseUsage` in `lib/index.js` |

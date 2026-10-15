@@ -29,7 +29,8 @@
     "README.md",
     "README.zh.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "assets"
   ],
   "engines": {
     "node": "^22.19.0 || >=24.0.0",
@@ -72,11 +73,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dineths728/dsh-opencode-usage-footer.git"
+    "url": "git+https://github.com/lykon7/dsh-opencode-usage-footer.git"
   },
-  "homepage": "https://github.com/dineths728/dsh-opencode-usage-footer#readme",
+  "homepage": "https://github.com/lykon7/dsh-opencode-usage-footer#readme",
   "bugs": {
-    "url": "https://github.com/dineths728/dsh-opencode-usage-footer/issues"
+    "url": "https://github.com/lykon7/dsh-opencode-usage-footer/issues"
   },
   "publishConfig": {
     "access": "public"

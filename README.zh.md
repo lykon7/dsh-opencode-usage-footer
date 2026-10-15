@@ -40,9 +40,10 @@ dsh plugin --profile web add dsh-opencode-usage-footer
 dsh plugin --profile web add /path/to/dsh-opencode-usage-footer
 ```
 
-**前提**：OpenCode Go 订阅，并把 Console API Key 存为 Harness 凭据
-`OPENCODE_GO_API_KEY`（设置 → 凭据），或设置同名环境变量。这个 Key 就是
-`opencode-go` 提供商推理时用的那一个——不需要浏览器 Cookie，也不需要第二个 Key。
+**前提**：OpenCode Go 订阅，按正常方式在 **设置 → 模型 → 添加模型提供商 → opencode-go**
+里添加。Harness 会把这个提供商的 Console API Key 存为凭据 `OPENCODE_GO_API_KEY`，
+本插件读的就是它（也是该提供商推理时用的同一个 Key）——不需要浏览器 Cookie，
+也不需要第二个 Key。也可以直接导出同名环境变量，它的优先级更高。
 
 ## 工作原理
 
@@ -70,7 +71,7 @@ dsh plugin --profile web add /path/to/dsh-opencode-usage-footer
 | 显示 | 含义 | 处理 |
 | --- | --- | --- |
 | `Go …` | 首次读取中 | — |
-| `Go no key` | 没有找到 `OPENCODE_GO_API_KEY` | 在 设置 → 凭据 中写入，或导出环境变量 |
+| `Go no key` | 没有找到 `OPENCODE_GO_API_KEY` | 在 **设置 → 模型 → 添加模型提供商** 里添加，或导出环境变量 |
 | `Go key rejected` | opencode.ai 返回 401/403 | 到 OpenCode 控制台重新签发 Key |
 | `Go offline` / `Go timeout` | 宿主端无法访问 opencode.ai | 检查网络 |
 | `Go api changed` | 响应里没有用量窗口 | 更新 `lib/index.js` 中的 `parseUsage` |
