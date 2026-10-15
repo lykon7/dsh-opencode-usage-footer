@@ -1,0 +1,9 @@
+# Composition layer of the dsh-opencode-usage-footer bundle.
+#
+# One host row. The browser half travels with it through the package's
+# `dsh.client` declaration, so this file stays a pure insert into an otherwise
+# untouched tree: no shipped row is overridden, and removing the bundle in the
+# profile's `dsh.profile.bundles` removes the whole plugin.
+- insert:
+    - id: opencode-usage
+      name: dsh-opencode-usage-footer

@@ -1,0 +1,31 @@
+name: release
+
+# Publishing uses npm trusted publishing (OIDC): the workflow proves where the
+# tarball came from, and no long-lived registry token exists anywhere.
+# Setup once on npmjs.com: package -> Settings -> Trusted Publisher ->
+# GitHub Actions, repository `<owner>/dsh-opencode-usage-footer`, workflow `release.yml`.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # OIDC for trusted publishing and provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4 # reads packageManager from package.json
+        with:
+          version: 12
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: npm publish --provenance --access public

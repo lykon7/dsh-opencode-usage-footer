@@ -1,0 +1,85 @@
+{
+  "name": "dsh-opencode-usage-footer",
+  "version": "0.1.0",
+  "description": "OpenCode Go usage (5h / 7d / 30d) as a quiet pill in the DeepSeek Harness Web composer footer.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "opencode",
+    "opencode-go",
+    "usage",
+    "quota",
+    "web-ui"
+  ],
+  "license": "MIT",
+  "author": "Lykon",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.0-rc.2 <0.3.0-0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-client-ui-renderer": ">=0.2.0-rc.2 <0.3.0-0",
+    "@deepseek-ai/dsh-host-webserver": ">=0.2.0-rc.2 <0.3.0-0",
+    "@deepseek-ai/dsh-credentials": ">=0.2.0-rc.2 <0.3.0-0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-credentials": {
+      "optional": true
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.0-rc.2": "compatible"
+      },
+      "dsh": ">=0.2.0-rc.2 <0.3.0-0"
+    }
+  },
+  "scripts": {
+    "test": "node test/host-half.test.mjs && node test/client-half.test.mjs",
+    "check": "node --check lib/index.js && node --check lib/client.js && npm test",
+    "prepublishOnly": "npm run check"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dineths728/dsh-opencode-usage-footer.git"
+  },
+  "homepage": "https://github.com/dineths728/dsh-opencode-usage-footer#readme",
+  "bugs": {
+    "url": "https://github.com/dineths728/dsh-opencode-usage-footer/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@12.11.2"
+}
